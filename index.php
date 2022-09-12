@@ -15,7 +15,7 @@ $biscuits= BiscuitsHydrator::getBiscuits($db);
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <nav class="container-fluid bg-white border-bottom">
+        <nav class="container-fluid border-bottom bg-white" >
             <div class="row">
                 <h1 class="text-center title py-lg-4 py-2">Dunkin' Bisquids</h1>
             </div>
