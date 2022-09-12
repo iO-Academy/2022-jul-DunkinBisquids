@@ -20,6 +20,20 @@ main {
     opacity: 50%;
 }
 
+.card {
+    background-color: rgba(131, 131, 143, 0.5);
+}
+
+.card-title {
+    background-color: white;
+    width: 85%;
+}
+
+.card-img {
+    width: 85%;
+    background-color: white;
+}
+
 @media only screen and (max-width: 450px){
     .logoImg {
         padding-top: 150px;
