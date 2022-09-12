@@ -15,6 +15,8 @@ require_once './vendor/autoload.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="container">
-    <?php echo BiscuitsViewHelper::biscTest() ?>
+    <div class="row d-flex justify-content-center">
+        <?php echo BiscuitsViewHelper::biscTest() ?>
+    </div>
 </body>
 </html>
