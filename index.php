@@ -9,12 +9,7 @@ use BisquidsTin\Hydrators\BiscuitsHydrator;
 $db= GetDB::getDB();
 $biscuits= BiscuitsHydrator::getBiscuits($db);
 
-echo '<pre>';
-var_dump($biscuits);
-echo '</pre>';
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en-gb">
 <head>
@@ -25,8 +20,7 @@ echo '</pre>';
 </head>
 <body class="container">
     <div class="row d-flex justify-content-center">
-        <?php echo BiscuitsViewHelper::biscTest() ?>
+        <?php echo BiscuitsViewHelper::displayAllBiscuits($biscuits) ?>
     </div>
 </body>
 </html>
-
