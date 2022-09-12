@@ -2,12 +2,12 @@
 
 namespace BisquidsTin\Classes;
 
-class Biscuit
+class Biscuits
 {
     private $id;
     private $name;
     private $img;
-    private $rdt;
+    private $RDT;
     private $description;
     private $wikipedia;
 
@@ -38,9 +38,9 @@ class Biscuit
     /**
      * Get the value of rdt
      */ 
-    public function getRdt()
+    public function getRDT()
     {
-        return $this->rdt;
+        return $this->RDT;
     }
 
     /**
