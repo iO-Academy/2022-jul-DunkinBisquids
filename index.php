@@ -23,7 +23,8 @@ $biscuitDisplay = BiscuitsViewHelper::displayAllBiscuits($biscuits);
             </div>
         </nav>
         <main class="d-flex justify-content-center">
-            <img class="logoImg" src="./Dunkin_Donut_Logo.png" alt="Dunkin_Bisquids_Logo">
+            <img class="logoImg" src="./design/Dunkin_Donut_Logo.png" 
+alt="Dunkin_Bisquids_Logo">
             <section class="container">
                 <div class="row d-flex justify-content-center py-2">
                     <?= $biscuitDisplay ?>
