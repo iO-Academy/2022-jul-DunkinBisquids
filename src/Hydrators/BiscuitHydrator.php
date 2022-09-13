@@ -3,6 +3,7 @@
 namespace BisquidsTin\Hydrators;
 
 use BisquidsTin\Classes\Biscuit;
+use BisquidsTin\CustomExceptions\InvalidIdException;
 
 class BiscuitHydrator
 {
@@ -34,7 +35,11 @@ class BiscuitHydrator
         $query->setFetchMode(\PDO::FETCH_CLASS, Biscuit::class);
         $query->bindParam(":id", $id);
         $query->execute();
-        return $query->fetch();
+        $result = $query->fetch();
+        if (!$result) {
+            throw new InvalidIdException();
+        }
+        return $result;
     }
 }
 

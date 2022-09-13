@@ -1,14 +1,19 @@
 <?php
 require_once './vendor/autoload.php';
 
+use BisquidsTin\CustomExceptions\InvalidIdException;
 use BisquidsTin\Hydrators\BiscuitHydrator;
 use BisquidsTin\Utilities\DB;
 use BisquidsTin\ViewHelpers\BiscuitViewHelper;
 
 if (isset($_GET['id']) && $_GET['id'] !== '') {
-    $id = $_GET['id'];
-    $db = DB::getDB();
-    $biscuit = BiscuitHydrator::getBiscuitById($db, $id);
+    try {
+        $id = $_GET['id'];
+        $db = DB::getDB();
+        $biscuit = BiscuitHydrator::getBiscuitById($db, $id);   
+    } catch (InvalidIdException $e) {
+        header('Location: index.php');
+    }
     $biscuitDetailsDisplay = BiscuitViewHelper::displayBiscuitDetails($biscuit);
 } else {
     header('Location: index.php');
