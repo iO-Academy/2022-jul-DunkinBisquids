@@ -2,14 +2,14 @@
 
 require_once '../../vendor/autoload.php';
 
-use BisquidsTin\Classes\Biscuits;
-use BisquidsTin\ViewHelpers\BiscuitsViewHelper;
+use BisquidsTin\Classes\Biscuit;
+use BisquidsTin\ViewHelpers\BiscuitViewHelper;
 use PHPUnit\Framework\Testcase;
 
 class DetailsViewHelperTest extends Testcase
 {
     public function testSuccessDisplayBiscuitDetails() {
-        $biscuitMock = $this->createMock(Biscuits::class);
+        $biscuitMock = $this->createMock(Biscuit::class);
         $biscuitMock->method('getName')->willReturn('Digestive');
         $biscuitMock->method('getImg')->willReturn('https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/d05662cfb32042c9894dddf8ed73ce22.jpg');
         $biscuitMock->method('getId')->willReturn(1);
@@ -28,13 +28,13 @@ class DetailsViewHelperTest extends Testcase
         $expected .= '<p>RDT: 5</p>';
         $expected .= '<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Digestive_biscuit">Digestive</a></p></div>';
 
-        $actual = BiscuitsViewHelper::displayBiscuitDetails($input);
+        $actual = BiscuitViewHelper::displayBiscuitDetails($input);
         $this->assertEquals($expected, $actual);
     }
 
     public function testFailureDisplayBiscuitDetails()
     {
-        $biscuitMock = $this->createMock(Biscuits::class);
+        $biscuitMock = $this->createMock(Biscuit::class);
         $biscuitMock->method('getName')->willReturn('');
         $biscuitMock->method('getImg')->willReturn('https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/d05662cfb32042c9894dddf8ed73ce22.jpg');
         $biscuitMock->method('getId')->willReturn(1);
@@ -46,7 +46,7 @@ class DetailsViewHelperTest extends Testcase
         
         $expected = 'no biscuit selected';
         
-        $actual = BiscuitsViewHelper::displayBiscuitDetails($input);
+        $actual = BiscuitViewHelper::displayBiscuitDetails($input);
         $this->assertEquals($expected, $actual);
     }
 
@@ -54,6 +54,6 @@ class DetailsViewHelperTest extends Testcase
     {
         $input = 'hello';
         $this->expectException(TypeError::class);
-        $case = BiscuitsViewHelper::displayBiscuitDetails($input);
+        $case = BiscuitViewHelper::displayBiscuitDetails($input);
     }
 }

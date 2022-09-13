@@ -1,15 +1,15 @@
 <?php
 require_once './vendor/autoload.php';
 
-use BisquidsTin\Hydrators\BiscuitsHydrator;
+use BisquidsTin\Hydrators\BiscuitHydrator;
 use BisquidsTin\Utilities\DB;
-use BisquidsTin\ViewHelpers\BiscuitsViewHelper;
+use BisquidsTin\ViewHelpers\BiscuitViewHelper;
 
 if (isset($_GET['id']) && $_GET['id'] !== '') {
     $id = $_GET['id'];
     $db = DB::getDB();
-    $biscuit = BiscuitsHydrator::getBiscuitById($db, $id);
-    $biscuitDetailsDisplay = BiscuitsViewHelper::displayBiscuitDetails($biscuit);
+    $biscuit = BiscuitHydrator::getBiscuitById($db, $id);
+    $biscuitDetailsDisplay = BiscuitViewHelper::displayBiscuitDetails($biscuit);
 } else {
     header('Location: index.php');
 }

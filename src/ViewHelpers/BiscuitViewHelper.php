@@ -2,9 +2,9 @@
 
 namespace BisquidsTin\ViewHelpers;
 
-use BisquidsTin\Classes\Biscuits;
+use BisquidsTin\Classes\Biscuit;
 
-class BiscuitsViewHelper 
+class BiscuitViewHelper 
 {
     /**
      * Function to display all the individual biscuit data from the array of biscuits.
@@ -17,7 +17,7 @@ class BiscuitsViewHelper
         $result = "";
 
         foreach($biscuits as $biscuit)
-        if ($biscuit instanceof Biscuits) {
+        if ($biscuit instanceof Biscuit) {
             $result .= '<div class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10 col-lg-3">';
             $result .= '<div class="card-title card-background rounded">';
             $result .= '<h2 class="text-center p-2">' . $biscuit->getName() . '</h2>';
@@ -34,10 +34,10 @@ class BiscuitsViewHelper
     /**
      * Function to display an individual biscuit in greater detail
      *
-     * @param Biscuits $biscuit
+     * @param Biscuit $biscuit
      * @return string
      */
-    public static function displayBiscuitDetails(Biscuits $biscuit):string {
+    public static function displayBiscuitDetails(Biscuit $biscuit):string {
         
         if ($biscuit->getName() !== '') {
             $result = '';

@@ -2,9 +2,9 @@
 
 namespace BisquidsTin\Hydrators;
 
-use BisquidsTin\Classes\Biscuits;
+use BisquidsTin\Classes\Biscuit;
 
-class BiscuitsHydrator
+class BiscuitHydrator
 {
 
     /**
@@ -16,7 +16,7 @@ class BiscuitsHydrator
     public static function getBiscuits(\PDO $db): array
     {
         $query = $db->prepare("SELECT `id`, `name`, `img`, `RDT`, `desc` AS `description`, `wikipedia` FROM `biscuits`;");
-        $query->setFetchMode(\PDO::FETCH_CLASS, Biscuits::class);
+        $query->setFetchMode(\PDO::FETCH_CLASS, Biscuit::class);
         $query->execute();
         return $query->fetchAll();
     }
@@ -28,10 +28,10 @@ class BiscuitsHydrator
      * @param string $id
      * @return Biscuits returns the biscuit with the correct id
      */
-    public static function getBiscuitById(\PDO $db, string $id): Biscuits
+    public static function getBiscuitById(\PDO $db, string $id): Biscuit
     {
         $query = $db->prepare("SELECT `id`, `name`, `img`, `RDT`, `desc` AS `description`, `wikipedia` FROM `biscuits` WHERE `id` = (:id);");
-        $query->setFetchMode(\PDO::FETCH_CLASS, Biscuits::class);
+        $query->setFetchMode(\PDO::FETCH_CLASS, Biscuit::class);
         $query->bindParam(":id", $id);
         $query->execute();
         return $query->fetch();

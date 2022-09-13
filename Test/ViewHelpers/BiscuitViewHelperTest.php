@@ -2,14 +2,14 @@
 
 require_once '../../vendor/autoload.php';
 
-use BisquidsTin\Classes\Biscuits;
-use BisquidsTin\ViewHelpers\BiscuitsViewHelper;
+use BisquidsTin\Classes\Biscuit;
+use BisquidsTin\ViewHelpers\BiscuitViewHelper;
 use PHPUnit\Framework\Testcase;
 
-class BiscuitsViewHelperTest extends Testcase
+class BiscuitViewHelperTest extends Testcase
 {
     public function testSuccessDisplayAllBiscuits() {
-        $biscuitMock = $this->createMock(Biscuits::class);
+        $biscuitMock = $this->createMock(Biscuit::class);
         $biscuitMock->method('getName')->willReturn('Digestive');
         $biscuitMock->method('getImg')->willReturn('https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/d05662cfb32042c9894dddf8ed73ce22.jpg');
         $biscuitMock->method('getId')->willReturn(1);
@@ -21,12 +21,12 @@ class BiscuitsViewHelperTest extends Testcase
         $expected .= '<h2 class="text-center p-2">Digestive</h2>';
         $expected .= '</div><div class="card-img d-flex justify-content-center mb-3">';
         $expected .= '<img src="https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/d05662cfb32042c9894dddf8ed73ce22.jpg" class="rounded mw-100" alt="Digestive" />';
-        $expected .= '</div><form action="biscuitDetails.php" method="POST">';
+        $expected .= '</div><form action="biscuitdetails.php" method="GET">';
         $expected .= '<input name="id" type="hidden" value="1" />';
         $expected .= '<button type="submit" class="btn btn-light">More Info</button>';
         $expected .= '</form></div>';
 
-        $actual = BiscuitsViewHelper::displayAllBiscuits($input);
+        $actual = BiscuitViewHelper::displayAllBiscuits($input);
         $this->assertEquals($expected, $actual);
     }
 
@@ -36,7 +36,7 @@ class BiscuitsViewHelperTest extends Testcase
         
         $expected = '';
         
-        $actual = BiscuitsViewHelper::displayAllBiscuits($input);
+        $actual = BiscuitViewHelper::displayAllBiscuits($input);
         $this->assertEquals($expected, $actual);
     }
 
@@ -44,6 +44,6 @@ class BiscuitsViewHelperTest extends Testcase
     {
         $input = 'hello';
         $this->expectException(TypeError::class);
-        $case = BiscuitsViewHelper::displayAllBiscuits($input);
+        $case = BiscuitViewHelper::displayAllBiscuits($input);
     }
 }
