@@ -34,4 +34,21 @@ class DetailsViewHelperTest extends Testcase
         $actual = DetailsViewHelper::displayBiscuitDetails($input);
         $this->assertEquals($expected, $actual);
     }
+
+    public function testFailureDisplayBiscuitDetails()
+    {
+        $input = [1, 2];
+        
+        $expected = '';
+        
+        $actual = DetailsViewHelper::displayBiscuitDetails($input);
+        $this->assertEquals($expected, $actual);
+    }
+
+    public function testMalformedDisplayBiscuitDetails()
+    {
+        $input = 'hello';
+        $this->expectException(TypeError::class);
+        $case = DetailsViewHelper::displayBiscuitDetails($input);
+    }
 }

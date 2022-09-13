@@ -40,7 +40,7 @@ class BiscuitsViewHelperTest extends Testcase
         $this->assertEquals($expected, $actual);
     }
 
-    public function testMalformedMDisplayAllBiscuits()
+    public function testMalformedDisplayAllBiscuits()
     {
         $input = 'hello';
         $this->expectException(TypeError::class);
