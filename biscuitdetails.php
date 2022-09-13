@@ -25,14 +25,14 @@ $biscuitDetailsDisplay = DetailsViewHelper::displayBiscuitDetails($biscuit);
                 <h1 class="text-center title py-lg-4 py-2">Dunkin' Bisquids</h1>
             </div>
         </nav>
-        <main class="d-flex justify-content-center">
+        <div class="m-4 d-flex justify-content-end">
+            <a href="index.php" class="btn btn-primary">Back to Bisquids</a>
+        </div>
+        <main>
             <img class="logoImg" src="./design/Dunkin_Donut_Logo.png" alt="Dunkin_Bisquids_Logo">
-            <section class="container">
+            <section class="container d-flex justify-content-center">
                 <?= $biscuitDetailsDisplay ?>
             </section>
-            <div class="m-4">
-                <a href="index.php" class="btn btn-primary">Back to Bisquids</a>
-            </div>
         </main>
     </body>
 </html>
