@@ -25,7 +25,7 @@ class BiscuitsViewHelper
             $result .= '<img src="' . $biscuit->getImg() . '" class="rounded mw-100" alt="' . $biscuit->getName() . '" />';
             $result .= '</div><form action="biscuitDetails.php" method="POST">';
             $result .= '<input type="hidden" value="' . $biscuit->getId() . '" />';
-            $result .= '<button type="button" class="btn btn-secondary">More Info</button>';
+            $result .= '<button type="button" class="btn btn-light">More Info</button>';
             $result .= '</form></div>';
         }
         return $result;

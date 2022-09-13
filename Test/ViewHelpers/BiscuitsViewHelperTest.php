@@ -23,7 +23,7 @@ class BiscuitsViewHelperTest extends Testcase
         $expected .= '<img src="https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/d05662cfb32042c9894dddf8ed73ce22.jpg" class="rounded mw-100" alt="Digestive" />';
         $expected .= '</div><form action="biscuitDetails.php" method="POST">';
         $expected .= '<input type="hidden" value="1" />';
-        $expected .= '<button type="button" class="btn btn-secondary">More Info</button>';
+        $expected .= '<button type="button" class="btn btn-light">More Info</button>';
         $expected .= '</form></div>';
 
         $actual = BiscuitsViewHelper::displayAllBiscuits($input);
