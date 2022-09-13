@@ -1,6 +1,8 @@
 <?php
 require_once './vendor/autoload.php';
 
+session_start();
+
 use BisquidsTin\ViewHelpers\BiscuitsViewHelper;
 use BisquidsTin\Utilities\DB;
 use BisquidsTin\Hydrators\BiscuitsHydrator;
@@ -8,14 +10,10 @@ use BisquidsTin\Hydrators\BiscuitsHydrator;
 $db = DB::getDB();
 $biscuits = BiscuitsHydrator::getBiscuits($db);
 $biscuitDisplay = BiscuitsViewHelper::displayAllBiscuits($biscuits);
-// Left these in for testing in code review - to be removed
-// $id = '10';
-// $result = BiscuitsHydrator::decrementDunk($db, $id);
-// $result2 = BiscuitsHydrator::decrementFlunk($db, $id);
-// $result = BiscuitsHydrator::incrementDunk($db, $id);
-// $result2 = BiscuitsHydrator::incrementFlunk($db, $id);
+
 ?>
 <html lang="en-gb">
+
 
 <head>
     <title>Dunkin' Bisquids</title>
