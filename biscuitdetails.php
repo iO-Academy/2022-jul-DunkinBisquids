@@ -7,7 +7,7 @@ use BisquidsTin\ViewHelpers\DetailsViewHelper;
 
 $id = $_POST['id'];
 $db = DB::getDB();
-$biscuit = BiscuitsHydrator::getBiscuitsById($db,$id);
+$biscuit = BiscuitsHydrator::getBiscuitById($db, $id);
 $biscuitDetailsDisplay = DetailsViewHelper::displayBiscuitDetails($biscuit);
 
 ?>

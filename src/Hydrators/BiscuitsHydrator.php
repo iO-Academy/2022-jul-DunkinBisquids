@@ -27,13 +27,13 @@ class BiscuitsHydrator
      * @param \PDO $db 
      * @return array returns the database query as an array.
      */
-    public static function getBiscuitsById(\PDO $db, string $id): array
+    public static function getBiscuitById(\PDO $db, string $id): Biscuits
     {
         $query = $db->prepare("SELECT `id`, `name`, `img`, `RDT`, `desc` AS `description`, `wikipedia` FROM `biscuits` WHERE `id` = (:id);");
         $query->setFetchMode(\PDO::FETCH_CLASS, Biscuits::class);
         $query->bindParam(":id", $id);
         $query->execute();
-        return $query->fetchAll();
+        return $query->fetch();
     }
 }
 
