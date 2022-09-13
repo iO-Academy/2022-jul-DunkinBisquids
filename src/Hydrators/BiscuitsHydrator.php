@@ -20,4 +20,60 @@ class BiscuitsHydrator
         $query->execute();
         return $query->fetchAll();
     }
+
+    /**
+     * Function to increment dunk number by one
+     *
+     * @param \PDO $db
+     * @param string $id
+     * @return boolean
+     */
+    public static function incrementDunk(\PDO $db, string $id): bool
+    {
+        $query = $db->prepare("UPDATE `biscuits` SET `dunk` = `dunk` + 1 WHERE `id` = :id;");
+        $query->bindParam(':id', $id);
+        return $query->execute();
+    }
+
+    /**
+     * Function to increment flunk number by one
+     *
+     * @param \PDO $db
+     * @param string $id
+     * @return boolean
+     */
+    public static function incrementFlunk(\PDO $db, string $id): bool
+    {
+        $query = $db->prepare("UPDATE `biscuits` SET `flunk` = `flunk` + 1 WHERE `id` = :id;");
+        $query->bindParam(':id', $id);
+        return $query->execute();
+    }
+
+    /**
+     * Function to decrement dunk number by one
+     *
+     * @param \PDO $db
+     * @param string $id
+     * @return boolean
+     */
+    public static function decrementDunk(\PDO $db, string $id): bool
+    {
+        $query = $db->prepare("UPDATE `biscuits` SET `dunk` = `dunk` - 1 WHERE `id` = :id;");
+        $query->bindParam(':id', $id);
+        return $query->execute();
+    }
+
+    /**
+     * Function to decrement flunk number by one
+     *
+     * @param \PDO $db
+     * @param string $id
+     * @return boolean
+     */
+    public static function decrementFlunk(\PDO $db, string $id): bool
+    {
+        $query = $db->prepare("UPDATE `biscuits` SET `flunk` = `flunk` - 1 WHERE `id` = :id;");
+        $query->bindParam(':id', $id);
+        return $query->execute();
+    }
 }

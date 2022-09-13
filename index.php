@@ -8,7 +8,12 @@ use BisquidsTin\Hydrators\BiscuitsHydrator;
 $db = DB::getDB();
 $biscuits = BiscuitsHydrator::getBiscuits($db);
 $biscuitDisplay = BiscuitsViewHelper::displayAllBiscuits($biscuits);
-
+// Left these in for testing in code review - to be removed
+// $id = '10';
+// $result = BiscuitsHydrator::decrementDunk($db, $id);
+// $result2 = BiscuitsHydrator::decrementFlunk($db, $id);
+// $result = BiscuitsHydrator::incrementDunk($db, $id);
+// $result2 = BiscuitsHydrator::incrementFlunk($db, $id);
 ?>
 <html lang="en-gb">
 
