@@ -24,8 +24,8 @@ class BiscuitsViewHelper
             $result .= '</div><div class="card-img d-flex justify-content-center">';
             $result .= '<img src="' . $biscuit->getImg() . '" class="rounded mw-100" alt="' . $biscuit->getName() . '" />';
             $result .= '</div><form action="biscuitDetails.php" method="POST">';
-            $result .= '<input type="hidden" value="' . $biscuit->getId() . '" />';
-            $result .= '<button>More info</button>';
+            $result .= '<input name="id" type="hidden" value="' . $biscuit->getId() . '">';
+            $result .= '<button type="submit">More info</button>';
             $result .= '</form></div>';
         }
         return $result;
