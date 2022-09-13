@@ -5,15 +5,16 @@ use BisquidsTin\Hydrators\BiscuitsHydrator;
 use BisquidsTin\Utilities\DB;
 use BisquidsTin\ViewHelpers\DetailsViewHelper;
 
+$id = $_POST['id'];
 $db = DB::getDB();
-$biscuits = BiscuitsHydrator::getBiscuits($db);
-$biscuitDetailsDisplay = DetailsViewHelper::displayBiscuitDetails($biscuits);
+$biscuit = BiscuitsHydrator::getBiscuitsById($db,$id);
+$biscuitDetailsDisplay = DetailsViewHelper::displayBiscuitDetails($biscuit);
 
 ?>
 
 <html lang="en-gb">
     <head>
-        <title>Dunkin' Bisquids</title>
+        <title>Dunkin' Bisquids Details</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <link rel="stylesheet" href="styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +30,9 @@ $biscuitDetailsDisplay = DetailsViewHelper::displayBiscuitDetails($biscuits);
             <section class="container">
                 <?= $biscuitDetailsDisplay ?>
             </section>
+            <div class="m-4">
+                <a href="index.php" class="btn btn-primary">Back to Bisquids</a>
+            </div>
         </main>
     </body>
 </html>
