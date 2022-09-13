@@ -15,7 +15,7 @@ class BiscuitsHydrator
      */
     public static function getBiscuits(\PDO $db): array
     {
-        $query = $db->prepare("SELECT `id`, `name`, `img`, `RDT`, `desc`, `wikipedia` FROM `biscuits`;");
+        $query = $db->prepare("SELECT `id`, `name`, `img`, `RDT`, `desc` AS `description`, `wikipedia` FROM `biscuits`;");
         $query->setFetchMode(\PDO::FETCH_CLASS, Biscuits::class);
         $query->execute();
         return $query->fetchAll();
@@ -29,7 +29,7 @@ class BiscuitsHydrator
      */
     public static function getBiscuitsById(\PDO $db, string $id): array
     {
-        $query = $db->prepare("SELECT `id`, `name`, `img`, `RDT`, `desc`, `wikipedia` FROM `biscuits` WHERE `id` = (:id);");
+        $query = $db->prepare("SELECT `id`, `name`, `img`, `RDT`, `desc` AS `description`, `wikipedia` FROM `biscuits` WHERE `id` = (:id);");
         $query->setFetchMode(\PDO::FETCH_CLASS, Biscuits::class);
         $query->bindParam(":id", $id);
         $query->execute();
