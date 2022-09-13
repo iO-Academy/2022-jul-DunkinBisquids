@@ -6,12 +6,8 @@ use BisquidsTin\Hydrators\BiscuitsHydrator;
 $id = $_POST['id'];
 $db = DB::getDB();
 $biscuit = BiscuitsHydrator::getBiscuitsById($db,$id);
-
 // $biscuitDisplay = BiscuitsViewHelper::displayAllBiscuits($biscuits);
-
-
 ?>
-
 <html lang="en-gb">
     <head>
         <title>Dunkin' Bisquids Details</title>
@@ -28,8 +24,7 @@ $biscuit = BiscuitsHydrator::getBiscuitsById($db,$id);
         <main class="d-flex justify-content-center">
             <img class="logoImg" src="./design/Dunkin_Donut_Logo.png" 
 alt="Dunkin_Bisquids_Logo">
-            <section class="container">
-                
+            <section class="container">   
             </section>
             <div class="m-4">
                 <a href="index.php" class="btn btn-primary">Back to Bisquids</a>
