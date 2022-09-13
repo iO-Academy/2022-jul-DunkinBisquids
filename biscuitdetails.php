@@ -11,7 +11,6 @@ $biscuit = BiscuitsHydrator::getBiscuitsById($db,$id);
 $biscuitDetailsDisplay = DetailsViewHelper::displayBiscuitDetails($biscuit);
 
 ?>
-
 <html lang="en-gb">
     <head>
         <title>Dunkin' Bisquids Details</title>
