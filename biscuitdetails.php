@@ -1,6 +1,6 @@
 <?php 
 
-
+$biscuit = BiscuitsHydrator::getBiscuitbyId($db);
 
 
 ?>
