@@ -6,6 +6,7 @@ use BisquidsTin\Hydrators\BiscuitsHydrator;
 
 $db= GetDB::getDB();
 $biscuits= BiscuitsHydrator::getBiscuits($db);
+
 ?>
 <html lang="en-gb">
     <head>
@@ -24,7 +25,7 @@ $biscuits= BiscuitsHydrator::getBiscuits($db);
             <img class="logoImg" src="./Dunkin_Donut_Logo.png" alt="Dunkin_Bisquids_Logo">
             <section class="container">
                 <div class="row d-flex justify-content-center py-2">
-                    <?php echo BiscuitsViewHelper::biscTest() ?>
+                <?php echo BiscuitsViewHelper::displayAllBiscuits($biscuits) ?>
                 </div>
             </section>
         </main>
