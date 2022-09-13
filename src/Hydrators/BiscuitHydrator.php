@@ -27,7 +27,7 @@ class BiscuitHydrator
      *
      * @param \PDO $db
      * @param string $id
-     * @return Biscuits returns the biscuit with the correct id
+     * @return Biscuit returns the biscuit with the correct id
      */
     public static function getBiscuitById(\PDO $db, string $id): Biscuit
     {
