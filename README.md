@@ -3,7 +3,7 @@
 ### Description
 Dunkin Bisquids is an object-orientated PHP project, styled  with Bootstrap, that fetches and displays information about a variety of the best biscuits (and TimTams) from a MySQL database.
 
-Upon selecting a biscuit you can view more in-depth facts about your favourite biscuit with a desciption, an arbitrary dunking time metric and a link to its wikipedia.
+Upon selecting a biscuit you can view more in-depth facts about your favourite biscuit with a description, an arbitrary dunking time metric and a link to its wikipedia.
 
 ## Getting Started
 
@@ -29,13 +29,14 @@ From the root of the project run:
 Composer install
 ```
 Install the database `/biscuits.sql` into a db named `biscuits`
+
 Ensure your local database host, username and password details are correct in:
 ```
 src/Classes/Utilities/GetDB.php
 ```
 The application will now be available wherever you access it
 ### Authors
-- Aiden Maskell - [@aidanmaskell](github.com/aidanmaskell)
+- Aidan Maskell - [@aidanmaskell](github.com/aidanmaskell)
 - Chris Walton - [@cr-walton](github.com/cr-walton)
 - Emily Clarkson - [@erc-clarkson](github.com/erc-clarkson)
 - Joe Dixon - [@Jdixon04](github.com/jdixon04)
