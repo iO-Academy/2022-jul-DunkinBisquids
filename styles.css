@@ -1,3 +1,24 @@
+.title {
+    font-family: Arial black;
+    text-transform: uppercase;
+    color: #92caa3;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #46b278;
+    letter-spacing: 1px;
+    font-size: 55px;
+    
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.logoImg {
+    position: fixed;
+    width: 70%;
+    opacity: 50%;
+}
 
 .card {
     background-color: rgba(131, 131, 143, 0.5);
@@ -11,4 +32,15 @@
 .card-img {
     width: 85%;
     background-color: white;
+    height: 80%;
+}
+
+@media only screen and (max-width: 450px){
+    .logoImg {
+        padding-top: 150px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
 }
