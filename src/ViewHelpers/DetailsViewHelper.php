@@ -6,6 +6,12 @@ use BisquidsTin\Classes\Biscuits;
 
 class DetailsViewHelper
 {
+    /**
+     * Function to display an individual biscuit in greater detail
+     *
+     * @param array $biscuit
+     * @return string
+     */
     public static function displayBiscuitDetails(array $biscuit):string {
 
         $result = '';
