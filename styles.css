@@ -8,11 +8,6 @@
     font-size: 55px;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-}
-
 .logoImg {
     position: fixed;
     width: 70%;
