@@ -28,7 +28,7 @@ $biscuitDetailsDisplay = DetailsViewHelper::displayBiscuitDetails($biscuit);
         <div class="m-4 d-flex justify-content-end">
             <a href="index.php" class="btn btn-primary">Back to Bisquids</a>
         </div>
-        <main>
+        <main class="d-flex justify-content-center">
             <img class="logoImg" src="./design/Dunkin_Donut_Logo.png" alt="Dunkin_Bisquids_Logo">
             <section class="container d-flex justify-content-center">
                 <?= $biscuitDetailsDisplay ?>
