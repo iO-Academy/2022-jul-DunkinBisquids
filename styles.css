@@ -32,6 +32,7 @@ main {
 .card-img {
     width: 85%;
     background-color: white;
+    height: 80%;
 }
 
 @media only screen and (max-width: 450px){
