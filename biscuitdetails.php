@@ -1,7 +1,9 @@
-<?php 
+<?php
+require_once './vendor/autoload.php';
 
-$biscuit = BiscuitsHydrator::getBiscuitbyId($db);
+use BisquidsTin\ViewHelpers\DetailsViewHelper;
 
+$biscuitDetailsDisplay = DetailsViewHelper::testdisplayBiscuitDetails();
 
 ?>
 
@@ -19,10 +21,9 @@ $biscuit = BiscuitsHydrator::getBiscuitbyId($db);
             </div>
         </nav>
         <main class="d-flex justify-content-center">
-            <img class="logoImg" src="./design/Dunkin_Donut_Logo.png" 
-alt="Dunkin_Bisquids_Logo">
+            <img class="logoImg" src="./design/Dunkin_Donut_Logo.png" alt="Dunkin_Bisquids_Logo">
             <section class="container">
-                
+                <?= $biscuitDetailsDisplay ?>
             </section>
         </main>
     </body>
