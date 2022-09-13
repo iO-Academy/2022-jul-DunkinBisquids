@@ -1,23 +1,20 @@
 .title {
     font-family: Arial black;
     text-transform: uppercase;
-    color: #92caa3;
+    color: #4a9d63;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #46b278;
+    -webkit-text-stroke-color: #195133;
     letter-spacing: 1px;
     font-size: 55px;
-    
-}
-
-main {
-    display: flex;
-    justify-content: center;
 }
 
 .logoImg {
     position: fixed;
     width: 70%;
     opacity: 50%;
+    max-height: 100vh;
+    margin-top: -75px;
+    z-index: -1;
 }
 
 .card {
@@ -38,6 +35,8 @@ main {
 @media only screen and (max-width: 450px){
     .logoImg {
         padding-top: 150px;
+        width: 90%;
+        margin-top: 0;
     }
 
     .title {
