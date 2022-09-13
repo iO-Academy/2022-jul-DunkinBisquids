@@ -26,7 +26,16 @@ class BiscuitsViewHelper
             $result .= '</div><form action="biscuitDetails.php" method="POST">';
             $result .= '<input type="hidden" value="' . $biscuit->getId() . '" />';
             $result .= '<button type="button" class="btn btn-light">More Info</button>';
-            $result .= '</form></div>';
+            $result .= '</form>';
+            $result .= '</div><form action="biscuitDetails.php" method="POST">';
+            $result .= '<input type="hidden" value="' . $biscuit->getId() . '" />';
+            $result .= '<button type="button" class="btn btn-light">More Info</button>';
+            $result .= '</form>';
+            $result .= '</div><form action="biscuitDetails.php" method="POST">';
+            $result .= '<input type="hidden" value="' . $biscuit->getId() . '" />';
+            $result .= '<button type="button" class="btn btn-light">More Info</button>';
+            $result .= '</form>';
+            $result .= '</div>';
         }
         return $result;
     }
