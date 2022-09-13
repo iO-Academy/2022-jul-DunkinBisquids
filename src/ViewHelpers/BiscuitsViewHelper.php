@@ -38,11 +38,9 @@ class BiscuitsViewHelper
      * @return string
      */
     public static function displayBiscuitDetails(Biscuits $biscuit):string {
-
-        $result = '';
-
-        if ($biscuit instanceof Biscuits)
-        {
+        
+        if ($biscuit->getName() !== '') {
+            $result = '';
             $result .= '<div class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10">';
             $result .= '<div class="card-title card-background rounded">';
             $result .= '<h2 class="text-center p-2">' . $biscuit->getName() . '</h2>';
@@ -51,7 +49,10 @@ class BiscuitsViewHelper
             $result .= '</div><div class="card-background rounded p-3"><p>' . $biscuit->getDescription() . '</p>';
             $result .= '<p>RDT: ' . $biscuit->getRDT() . '</p>';
             $result .= '<p>Wikipedia: <a href="' . $biscuit->getWikipedia() . '">' . $biscuit->getName() . '</a></p></div>';
+            
+            return $result;
+        } else {
+            return 'no biscuit selected';
         }
-        return $result;
     }
 }

@@ -17,7 +17,7 @@ class DetailsViewHelperTest extends Testcase
         $biscuitMock->method('getRDT')->willReturn(5);
         $biscuitMock->method('getWikipedia')->willReturn('https://en.wikipedia.org/wiki/Digestive_biscuit');
 
-        $input = [$biscuitMock];
+        $input = $biscuitMock;
 
         $expected = '<div class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10">';
         $expected .= '<div class="card-title card-background rounded">';
@@ -27,9 +27,6 @@ class DetailsViewHelperTest extends Testcase
         $expected .= '</div><div class="card-background rounded p-3"><p>A digestive biscuit, sometimes described as a sweet-meal biscuit, is a semi-sweet biscuit that originated in Scotland. The digestive was first developed in 1839 by two Scottish doctors to aid digestion.</p>';
         $expected .= '<p>RDT: 5</p>';
         $expected .= '<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Digestive_biscuit">Digestive</a></p></div>';
-        $expected .= '<form action="biscuitDetails.php" method="POST">';
-        $expected .= '<input type="hidden" value="1" />';
-        $expected .= '</form></div>';
 
         $actual = BiscuitsViewHelper::displayBiscuitDetails($input);
         $this->assertEquals($expected, $actual);
@@ -37,9 +34,17 @@ class DetailsViewHelperTest extends Testcase
 
     public function testFailureDisplayBiscuitDetails()
     {
-        $input = [1, 2];
+        $biscuitMock = $this->createMock(Biscuits::class);
+        $biscuitMock->method('getName')->willReturn('');
+        $biscuitMock->method('getImg')->willReturn('https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/d05662cfb32042c9894dddf8ed73ce22.jpg');
+        $biscuitMock->method('getId')->willReturn(1);
+        $biscuitMock->method('getDescription')->willReturn('A digestive biscuit, sometimes described as a sweet-meal biscuit, is a semi-sweet biscuit that originated in Scotland. The digestive was first developed in 1839 by two Scottish doctors to aid digestion.');
+        $biscuitMock->method('getRDT')->willReturn(5);
+        $biscuitMock->method('getWikipedia')->willReturn('https://en.wikipedia.org/wiki/Digestive_biscuit');
+
+        $input = $biscuitMock;
         
-        $expected = '';
+        $expected = 'no biscuit selected';
         
         $actual = BiscuitsViewHelper::displayBiscuitDetails($input);
         $this->assertEquals($expected, $actual);
