@@ -1,0 +1,45 @@
+.title {
+    font-family: Arial black;
+    text-transform: uppercase;
+    color: #4a9d63;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #195133;
+    letter-spacing: 1px;
+    font-size: 55px;
+}
+
+.logoImg {
+    position: fixed;
+    width: 70%;
+    opacity: 50%;
+    max-height: 100vh;
+    margin-top: -75px;
+    z-index: -1;
+}
+
+.card {
+    background-color: rgba(131, 131, 143, 0.5);
+}
+
+.card-title {
+    background-color: white;
+    width: 85%;
+}
+
+.card-img {
+    width: 85%;
+    background-color: white;
+    height: 80%;
+}
+
+@media only screen and (max-width: 450px){
+    .logoImg {
+        padding-top: 150px;
+        width: 90%;
+        margin-top: 0;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+}
