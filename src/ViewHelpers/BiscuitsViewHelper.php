@@ -6,6 +6,12 @@ use BisquidsTin\Classes\Biscuits;
 
 class BiscuitsViewHelper 
 {
+    /**
+     * Function to display all the individual biscuit data from the array of biscuits.
+     *
+     * @param array $biscuits
+     * @return string
+     */
     public static function displayAllBiscuits(array $biscuits): string
     {
         $result = "";
@@ -18,8 +24,6 @@ class BiscuitsViewHelper
             $result .= '</div><div class="card-img d-flex justify-content-center">';
             $result .= '<img src="' . $biscuit->getImg() . '" class="rounded mw-100" alt="' . $biscuit->getName() . '" />';
             $result .= '</div></div>';
-        } else {
-            $result .= '';
         }
         return $result;
     }

@@ -14,7 +14,7 @@ class Biscuits
     /**
      * Get the value of id
      */ 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -22,7 +22,7 @@ class Biscuits
     /**
      * Get the value of name
      */ 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -30,7 +30,7 @@ class Biscuits
     /**
      * Get the value of img
      */ 
-    public function getImg()
+    public function getImg(): string
     {
         return $this->img;
     }
@@ -38,7 +38,7 @@ class Biscuits
     /**
      * Get the value of rdt
      */ 
-    public function getRDT()
+    public function getRDT(): int
     {
         return $this->RDT;
     }
@@ -46,7 +46,7 @@ class Biscuits
     /**
      * Get the value of description
      */ 
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -54,7 +54,7 @@ class Biscuits
     /**
      * Get the value of wikipedia
      */ 
-    public function getWikipedia()
+    public function getWikipedia(): string
     {
         return $this->wikipedia;
     }

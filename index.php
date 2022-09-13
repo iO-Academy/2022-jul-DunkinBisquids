@@ -1,11 +1,12 @@
 <?php
 require_once './vendor/autoload.php';
 use BisquidsTin\ViewHelpers\BiscuitsViewHelper;
-use BisquidsTin\Utilities\GetDB;
+use BisquidsTin\Utilities\DB;
 use BisquidsTin\Hydrators\BiscuitsHydrator;
 
-$db= GetDB::getDB();
-$biscuits= BiscuitsHydrator::getBiscuits($db);
+$db = DB::getDB();
+$biscuits = BiscuitsHydrator::getBiscuits($db);
+$biscuitDisplay = BiscuitsViewHelper::displayAllBiscuits($biscuits);
 
 ?>
 <html>
@@ -24,8 +25,8 @@ $biscuits= BiscuitsHydrator::getBiscuits($db);
         <main>
             <img class="logoImg" src="./Dunkin_Donut_Logo.png" alt="Dunkin_Bisquids_Logo">
             <section class="container">
-                <div class="row d-flex justify-content-center">
-                <?php echo BiscuitsViewHelper::displayAllBiscuits($biscuits) ?>
+                <div class="row d-flex justify-content-center py-2">
+                    <?= $biscuitDisplay ?>
                 </div>
             </section>
         </main>
