@@ -8,7 +8,7 @@ class BiscuitsHydrator
 {
 
     /**
-     * Function that retrives all biscuit data from the database.
+     * Function that retrieves all biscuit data from the database.
      *
      * @param \PDO $db 
      * @return array returns the database query as an array.
@@ -22,10 +22,11 @@ class BiscuitsHydrator
     }
 
     /**
-     * Function that retrives all biscuit data from the database.
+     * Function that retrieves one biscuit based on id provided
      *
-     * @param \PDO $db 
-     * @return array returns the database query as an array.
+     * @param \PDO $db
+     * @param string $id
+     * @return Biscuits returns the biscuit with the correct id
      */
     public static function getBiscuitById(\PDO $db, string $id): Biscuits
     {
