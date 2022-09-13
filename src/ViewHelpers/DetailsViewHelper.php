@@ -6,11 +6,13 @@ use BisquidsTin\Classes\Biscuits;
 
 class DetailsViewHelper
 {
-    public static function displayBiscuitDetails($biscuit) {
+    public static function displayBiscuitDetails(array $biscuit):string {
 
-        if ($biscuit instanceof Biscuits)
+        $result = '';
+
+        if ($biscuit[0] instanceof Biscuits)
         {
-            $result = '<div class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10">';
+            $result .= '<div class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10">';
             $result .= '<div class="card-title card-background rounded">';
             $result .= '<h2 class="text-center p-2">' . $biscuit[0]->getName() . '</h2>';
             $result .= '</div><div class="card-img d-flex justify-content-center mb-3">';

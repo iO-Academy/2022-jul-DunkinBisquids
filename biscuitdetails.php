@@ -1,9 +1,13 @@
 <?php
 require_once './vendor/autoload.php';
 
+use BisquidsTin\Hydrators\BiscuitsHydrator;
+use BisquidsTin\Utilities\DB;
 use BisquidsTin\ViewHelpers\DetailsViewHelper;
 
-$biscuitDetailsDisplay = DetailsViewHelper::testdisplayBiscuitDetails();
+$db = DB::getDB();
+$biscuits = BiscuitsHydrator::getBiscuits($db);
+$biscuitDetailsDisplay = DetailsViewHelper::displayBiscuitDetails($biscuits);
 
 ?>
 
