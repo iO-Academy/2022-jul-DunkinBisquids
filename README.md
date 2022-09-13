@@ -1,7 +1,7 @@
 
 # DunkinBisquids
 ### Description
-Dunkin Bisquids is an object-orientated PHP project, styled  with Bootstrap, that fetches and displays information about a variety of the best biscuits (and TimTams) from a MySQL database.
+Dunkin Bisquids is an object-orientated PHP project, styled  with Bootstrap, that fetches and displays information about a variety of the best biscuits from a MySQL database.
 
 Upon selecting a biscuit you can view more in-depth facts about your favourite biscuit with a description, an arbitrary dunking time metric and a link to its wikipedia.
 
