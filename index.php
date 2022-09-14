@@ -16,6 +16,7 @@ $db = DB::getDB();
 $biscuits = BiscuitHydrator::getBiscuits($db);
 $biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits, $dunkedFlunkedData);
 ?>
+
 <html lang="en-gb">
 <head>
     <title>Dunkin' Bisquids</title>
