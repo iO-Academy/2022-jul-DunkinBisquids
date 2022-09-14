@@ -8,14 +8,14 @@ use PHPUnit\Framework\Testcase;
 
 class BiscuitViewHelperTest extends Testcase
 {
-    public function testSuccessDisplayAllBiscuits() {
+    public function testSuccessDisplayAllBiscuits() 
+    {
         $biscuitMock = $this->createMock(Biscuit::class);
         $biscuitMock->method('getName')->willReturn('Digestive');
         $biscuitMock->method('getImg')->willReturn('img.jpg');
         $biscuitMock->method('getId')->willReturn(3);
         $input2 =['dunkedFlunked' => ['1' => true]];
         $input = [$biscuitMock];
-
         $exp = '<div id="3" class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10 col-lg-3"><div class="card-title card-background rounded"><h2 class="text-center p-2">Digestive</h2></div><div class="card-img d-flex justify-content-center mb-3"><img src="img.jpg" class="rounded mw-100" alt="Digestive" /></div><form action="biscuitdetails.php" method="GET"><input type="hidden" name="id" value="3" /><button type="submit" class="btn btn-light">More Info</button></form><div class="d-flex container-fluid justify-content-around"><form action="hiddenDunk.php" method="POST"><input type="hidden" name="id" value="3" ><button type="submit"class="btn btn-success">Dunk</button></form><form action="hiddenFlunk.php" method="POST"><input type="hidden" name="id" value="3" ><button type="submit"class="btn btn-danger">Flunk</button></form></div></div>';
         $actual = BiscuitViewHelper::displayAllBiscuits($input, $input2);
         $this->assertEquals($exp, $actual);
@@ -39,7 +39,8 @@ class BiscuitViewHelperTest extends Testcase
         $case = BiscuitViewHelper::displayAllBiscuits($input, $input2);
     }
 
-    public function testSuccessDisplayBiscuitDetails() {
+    public function testSuccessDisplayBiscuitDetails() 
+    {
         $biscuitMock = $this->createMock(Biscuit::class);
         $biscuitMock->method('getName')->willReturn('Digestive');
         $biscuitMock->method('getImg')->willReturn('https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/d05662cfb32042c9894dddf8ed73ce22.jpg');

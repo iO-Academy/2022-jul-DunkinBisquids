@@ -20,7 +20,6 @@ class BiscuitViewHelper
             if(array_key_exists($biscuit->getId(), $dunkFlunkData)) {
                 $dunkFlunkState = $dunkFlunkData[$biscuit->getId()];
             }
-
             $result .= '<div id="' . $biscuit->getId() . '" class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10 col-lg-3">';
             $result .= '<div class="card-title card-background rounded">';
             $result .= '<h2 class="text-center p-2">' . $biscuit->getName() . '</h2>';
@@ -30,7 +29,6 @@ class BiscuitViewHelper
             $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" />';
             $result .= '<button type="submit" class="btn btn-light">More Info</button>';
             $result .= '</form>';
-
             $result .= '<div class="d-flex container-fluid justify-content-around"><form action="hiddenDunk.php" method="POST">';
             $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" >';
             $result .= '<button type="submit"'; 
@@ -39,8 +37,6 @@ class BiscuitViewHelper
             }
             $result .= 'class="btn btn-success">Dunk</button>';
             $result .= '</form>';
-
-
             $result .= '<form action="hiddenFlunk.php" method="POST">';
             $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" >';
             $result .= '<button type="submit"'; 
@@ -59,8 +55,8 @@ class BiscuitViewHelper
      * @param Biscuit $biscuit
      * @return string
      */
-    public static function displayBiscuitDetails(Biscuit $biscuit):string {
-        
+    public static function displayBiscuitDetails(Biscuit $biscuit):string 
+    {
         if ($biscuit->getName() !== '') {
             $result = '';
             $result .= '<div class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10">';
