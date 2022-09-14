@@ -3,13 +3,13 @@ require_once './vendor/autoload.php';
 
 session_start();
 
-use BisquidsTin\ViewHelpers\BiscuitsViewHelper;
+use BisquidsTin\ViewHelpers\BiscuitViewHelper;
 use BisquidsTin\Utilities\DB;
-use BisquidsTin\Hydrators\BiscuitsHydrator;
+use BisquidsTin\Hydrators\BiscuitHydrator;
 
 $db = DB::getDB();
-$biscuits = BiscuitsHydrator::getBiscuits($db);
-$biscuitDisplay = BiscuitsViewHelper::displayAllBiscuits($biscuits);
+$biscuits = BiscuitHydrator::getBiscuits($db);
+$biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits);
 
 ?>
 <html lang="en-gb">

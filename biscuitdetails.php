@@ -1,13 +1,24 @@
-<?php 
+<?php
 require_once './vendor/autoload.php';
-use BisquidsTin\Utilities\DB;
-use BisquidsTin\Hydrators\BiscuitsHydrator;
-use BisquidsTin\ViewHelpers\BiscuitsViewHelper;
 
-$id = $_POST['id'];
-$db = DB::getDB();
-$biscuit = BiscuitsHydrator::getBiscuitsById($db,$id);
-$biscuitDisplay = BiscuitsViewHelper::displayAllBiscuits($biscuit);
+use BisquidsTin\CustomExceptions\InvalidIdException;
+use BisquidsTin\Hydrators\BiscuitHydrator;
+use BisquidsTin\Utilities\DB;
+use BisquidsTin\ViewHelpers\BiscuitViewHelper;
+
+if (isset($_GET['id']) && $_GET['id'] !== '') {
+    try {
+        $id = $_GET['id'];
+        $db = DB::getDB();
+        $biscuit = BiscuitHydrator::getBiscuitById($db, $id);   
+    } catch (InvalidIdException $e) {
+        header('Location: index.php');
+    }
+    $biscuitDetailsDisplay = BiscuitViewHelper::displayBiscuitDetails($biscuit);
+} else {
+    header('Location: index.php');
+}
+
 ?>
 <html lang="en-gb">
     <head>
@@ -22,14 +33,14 @@ $biscuitDisplay = BiscuitsViewHelper::displayAllBiscuits($biscuit);
                 <h1 class="text-center title py-lg-4 py-2">Dunkin' Bisquids</h1>
             </div>
         </nav>
+        <div class="m-4 d-flex justify-content-end">
+            <a href="index.php" class="btn btn-primary">Back to Bisquids</a>
+        </div>
         <main class="d-flex justify-content-center">
-            <img class="logoImg" src="./design/Dunkin_Donut_Logo.png" 
-alt="Dunkin_Bisquids_Logo">
-            <section class="container">   
+            <img class="logoImg" src="./design/Dunkin_Donut_Logo.png" alt="Dunkin_Bisquids_Logo">
+            <section class="container d-flex justify-content-center">
+                <?= $biscuitDetailsDisplay ?>
             </section>
-            <div class="m-4">
-                <a href="index.php" class="btn btn-primary">Back to Bisquids</a>
-            </div>
         </main>
     </body>
 </html>
