@@ -2,7 +2,7 @@
 
 namespace BisquidsTin\Classes;
 
-class Biscuits
+class Biscuit
 {
     private $id;
     private $name;
