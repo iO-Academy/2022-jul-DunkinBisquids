@@ -43,3 +43,8 @@ The application will now be available wherever you access it
 - Josh Lewis - [@josh-lew](github.com/josh-lew)
 - Maria Fedorec-Kyte - [@mfk07](github.com/mfk07)
 - Mikey Ying - [@mikeycodingstuff](github.com/mikeycodingstuff)
+
+### Acknowledgements
+A big thank you to Emily Clarkson, who provided all of the artwork for the project and tirelessly worked to ensure that it looked as good as it does.
+
+Also to Charlie, who provided the bedrock of this project with his years of biscuits research.
