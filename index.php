@@ -30,10 +30,10 @@ $biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits);
         <div class="d-flex flex-column">
             <section class="d-flex border-bottom justify-content-around">
                 <div class="my-2">
-                    <h3>Most Dunked: Fig Rolls</h3>
+                    <h3 class="text-success">Most Dunked: Fig Rolls</h3>
                 </div>
                 <div class="my-2">
-                    <h3>Most Flunked: Party Rings</h3>
+                    <h3 class="text-danger">Most Flunked: Party Rings</h3>
                 </div>
             </section>
             <section class="container">
