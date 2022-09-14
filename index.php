@@ -3,13 +3,23 @@ require_once './vendor/autoload.php';
 
 session_start();
 
+$dunkedFlunkedData = [
+    'dunkedFlunked' => [
+        '1' => true, 
+        '3' => true, 
+        '5' => false, 
+        '7' => true, 
+        '8' => false, 
+    ]
+];
+
 use BisquidsTin\ViewHelpers\BiscuitViewHelper;
 use BisquidsTin\Utilities\DB;
 use BisquidsTin\Hydrators\BiscuitHydrator;
 
 $db = DB::getDB();
 $biscuits = BiscuitHydrator::getBiscuits($db);
-$biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits);
+$biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits, $dunkedFlunkedData['dunkedFlunked']);
 
 ?>
 <html lang="en-gb">
