@@ -71,7 +71,18 @@ class BiscuitViewHelper
             $result .= '</div><div class="card-background rounded p-3"><p>' . $biscuit->getDescription() . '</p>';
             $result .= '<p>RDT: ' . $biscuit->getRDT() . '</p>';
             $result .= '<p>Wikipedia: <a href="' . $biscuit->getWikipedia() . '">' . $biscuit->getName() . '</a></p></div>';
-            
+            $result .= '<div class="container-fluid mt-2 d-flex justify-content-around"><form action="hiddenVerify.php" method="POST">';
+            $result .= '<input type="hidden" name="dunk" value="' . $biscuit->getName() . '">';
+            $result .= '<div class="d-flex container-fluid justify-content-around"><form action="hiddenDunk.php" method="POST">';
+            $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" >';
+            $result .= '<button type="submit"'; 
+            $result .= ' class="btn btn-success">Dunk</button>';
+            $result .= '</form>';
+            $result .= '<form action="hiddenFlunk.php" method="POST">';
+            $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" >';
+            $result .= '<button type="submit"';
+            $result .= ' class="btn btn-danger">Flunk</button>';
+            $result .= '</form></div></div>';
             return $result;
         } else {
             return 'no biscuit selected';

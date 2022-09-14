@@ -64,7 +64,7 @@ class Biscuit
     /**
      * Get the value of dunk
      */
-    public function getDunk()
+    public function getDunk(): int
     {
         return $this->dunk;
     }
@@ -72,7 +72,7 @@ class Biscuit
     /**
      * Get the value of flunk
      */
-    public function getFlunk()
+    public function getFlunk(): int
     {
         return $this->flunk;
     }

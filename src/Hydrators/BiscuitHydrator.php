@@ -16,7 +16,7 @@ class BiscuitHydrator
      */
     public static function getBiscuits(\PDO $db): array
     {
-        $query = $db->prepare("SELECT `id`, `name`, `img`, `RDT`, `desc` AS `description`, `wikipedia` FROM `biscuits`;");
+        $query = $db->prepare("SELECT `id`, `name`, `img`, `RDT`, `desc` AS `description`, `wikipedia`, `dunk`, `flunk` FROM `biscuits`;");
         $query->setFetchMode(\PDO::FETCH_CLASS, Biscuit::class);
         $query->execute();
         return $query->fetchAll();
@@ -97,6 +97,4 @@ class BiscuitHydrator
         return $query->execute();
     }
 }
-
-
 ?>
