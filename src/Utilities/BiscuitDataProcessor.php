@@ -2,25 +2,33 @@
 
 namespace BisquidsTin\Utilities;
 
-abstract class BiscuitDataProcessor 
+abstract class BiscuitDataProcessor
 {
-    public static function mostDunked(array $biscuits):  string
+    public static function mostDunked(array $biscuits): string
     {
-        usort($biscuits, function($first, $second)
-        {
-            return $first->getDunk() < $second->getDunk();
-        });
+        if ($biscuits !== []) {
 
-        return $biscuits[0]->getName();
+            usort($biscuits, function ($first, $second) {
+                return $first->getDunk() < $second->getDunk();
+            });
+
+            return $biscuits[0]->getName();
+        } else {
+            return '';
+        }
     }
 
-    public static function mostFlunked(array $biscuits):  string
+    public static function mostFlunked(array $biscuits): string
     {
-        usort($biscuits, function($first, $second)
-        {
-            return $first->getFlunk() < $second->getFlunk();
-        });
+        if ($biscuits !== []) {
 
-        return $biscuits[0]->getName();
+            usort($biscuits, function ($first, $second) {
+                return $first->getFlunk() < $second->getFlunk();
+            });
+
+            return $biscuits[0]->getName();
+        } else {
+            return '';
+        }
     }
 }
