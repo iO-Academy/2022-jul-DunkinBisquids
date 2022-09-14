@@ -29,6 +29,11 @@ class BiscuitViewHelper
             $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" />';
             $result .= '<button type="submit" class="btn btn-light">More Info</button>';
             $result .= '</form>';
+            if(isset($dunkFlunkState)) {
+                $result .= '<div class="card-background rounded text-center m-1"><p class="my-auto">';
+                $result .= ($dunkFlunkState ? 'You dunked that biscuit!' : 'You flunked that biscuit!');
+                $result .= '</p></div>';
+            }
             $result .= '<div class="d-flex container-fluid justify-content-around"><form action="hiddenDunk.php" method="POST">';
             $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" >';
             $result .= '<button type="submit"'; 
