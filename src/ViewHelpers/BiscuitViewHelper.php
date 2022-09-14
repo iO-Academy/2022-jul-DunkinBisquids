@@ -35,7 +35,7 @@ class BiscuitViewHelper
             if(isset($dunkFlunkState)) {
                 $result .= ($dunkFlunkState ? ' disabled ' : '');
             }
-            $result .= 'class="btn btn-success">Dunk</button>';
+            $result .= 'class="btn btn-success"><img class="list-icon" src="design/Dunk_Icon.png" /></button>';
             $result .= '</form>';
             $result .= '<form action="hiddenFlunk.php" method="POST">';
             $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" >';
@@ -43,7 +43,7 @@ class BiscuitViewHelper
             if(isset($dunkFlunkState)) {
                 $result .= (!$dunkFlunkState ? ' disabled ' : '');
             }
-            $result .= 'class="btn btn-danger">Flunk</button>';
+            $result .= 'class="btn btn-danger"><img class="list-icon" src="design/Flunk_Icon.png" /></button>';
             $result .= '</form></div></div>';
         }
         return $result;
@@ -72,14 +72,12 @@ class BiscuitViewHelper
             $result .= '<p>RDT: ' . $biscuit->getRDT() . '</p>';
             $result .= '<p>Wikipedia: <a href="' . $biscuit->getWikipedia() . '">' . $biscuit->getName() . '</a></p></div>';
             $result .= '<div class="container-fluid mt-2 d-flex justify-content-around"><form action="hiddenDunk.php" method="POST">';
-            $result .= '<input type="hidden" name="dunk" value="' . $biscuit->getName() . '">';
-            $result .= '<div class="d-flex container-fluid justify-content-around"><form action="hiddenDunk.php" method="POST">';
             $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" >';
             $result .= '<button type="submit"'; 
             if(isset($dunkFlunkState)) {
                 $result .= ($dunkFlunkState ? ' disabled ' : '');
             }
-            $result .= ' class="btn btn-success">Dunk</button>';
+            $result .= ' class="btn btn-success"><img class="details-icon" src="design/Dunk_Icon.png" /></button>';
             $result .= '</form>';
             $result .= '<form action="hiddenFlunk.php" method="POST">';
             $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" >';
@@ -87,7 +85,7 @@ class BiscuitViewHelper
             if(isset($dunkFlunkState)) {
                 $result .= (!$dunkFlunkState ? ' disabled ' : '');
             }
-            $result .= ' class="btn btn-danger">Flunk</button>';
+            $result .= ' class="btn btn-danger"><img class="details-icon" src="design/Flunk_Icon.png" /></button>';
             $result .= '</form></div></div>';
             return $result;
         } else {
