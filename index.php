@@ -1,5 +1,6 @@
 <?php
 require_once './vendor/autoload.php';
+
 use BisquidsTin\ViewHelpers\BiscuitViewHelper;
 use BisquidsTin\Utilities\DB;
 use BisquidsTin\Hydrators\BiscuitHydrator;
@@ -10,26 +11,38 @@ $biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits);
 
 ?>
 <html lang="en-gb">
-    <head>
-        <title>Dunkin' Bisquids</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <nav class="container-fluid border-bottom bg-white sticky-top" >
-            <div class="row">
-                <h1 class="text-center title py-lg-4 py-2">Dunkin' Bisquids</h1>
-            </div>
-        </nav>
-        <main class="d-flex justify-content-center">
-            <img class="logoImg" src="./design/Dunkin_Donut_Logo.png" 
-alt="Dunkin_Bisquids_Logo">
+
+<head>
+    <title>Dunkin' Bisquids</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <nav class="container-fluid border-bottom bg-white sticky-top">
+        <div class="row">
+            <h1 class="text-center title py-lg-4 py-2">Dunkin' Bisquids</h1>
+        </div>
+    </nav>
+    <main class="d-flex justify-content-center">
+        <img class="logoImg" src="./design/Dunkin_Donut_Logo.png" alt="Dunkin_Bisquids_Logo">
+        <div class="d-flex flex-column">
+            <section class="d-flex border-bottom justify-content-around">
+                <div class="my-2">
+                    <h3 class="text-success">Most Dunked: Fig Rolls</h3>
+                </div>
+                <div class="my-2">
+                    <h3 class="text-danger">Most Flunked: Party Rings</h3>
+                </div>
+            </section>
             <section class="container">
                 <div class="row d-flex justify-content-center py-2">
                     <?= $biscuitDisplay ?>
                 </div>
             </section>
-        </main>
-    </body>
+        </div>
+    </main>
+</body>
+
 </html>
