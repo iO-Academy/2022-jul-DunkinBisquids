@@ -55,9 +55,13 @@ class BiscuitViewHelper
      * @param Biscuit $biscuit
      * @return string
      */
-    public static function displayBiscuitDetails(Biscuit $biscuit):string 
+    public static function displayBiscuitDetails(Biscuit $biscuit, array $dunkFlunkData):string 
     {
         if ($biscuit->getName() !== '') {
+            $dunkFlunkState = null;
+            if(array_key_exists($biscuit->getId(), $dunkFlunkData)) {
+                $dunkFlunkState = $dunkFlunkData[$biscuit->getId()];
+            }
             $result = '';
             $result .= '<div class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10">';
             $result .= '<div class="card-title card-background rounded">';
@@ -67,16 +71,22 @@ class BiscuitViewHelper
             $result .= '</div><div class="card-background rounded p-3"><p>' . $biscuit->getDescription() . '</p>';
             $result .= '<p>RDT: ' . $biscuit->getRDT() . '</p>';
             $result .= '<p>Wikipedia: <a href="' . $biscuit->getWikipedia() . '">' . $biscuit->getName() . '</a></p></div>';
-            $result .= '<div class="container-fluid mt-2 d-flex justify-content-around"><form action="hiddenVerify.php" method="POST">';
+            $result .= '<div class="container-fluid mt-2 d-flex justify-content-around"><form action="hiddenDunk.php" method="POST">';
             $result .= '<input type="hidden" name="dunk" value="' . $biscuit->getName() . '">';
             $result .= '<div class="d-flex container-fluid justify-content-around"><form action="hiddenDunk.php" method="POST">';
             $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" >';
             $result .= '<button type="submit"'; 
+            if(isset($dunkFlunkState)) {
+                $result .= ($dunkFlunkState ? ' disabled ' : '');
+            }
             $result .= ' class="btn btn-success">Dunk</button>';
             $result .= '</form>';
             $result .= '<form action="hiddenFlunk.php" method="POST">';
             $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" >';
             $result .= '<button type="submit"';
+            if(isset($dunkFlunkState)) {
+                $result .= (!$dunkFlunkState ? ' disabled ' : '');
+            }
             $result .= ' class="btn btn-danger">Flunk</button>';
             $result .= '</form></div></div>';
             return $result;
