@@ -17,10 +17,14 @@ $dunkedFlunkedData = [
 use BisquidsTin\ViewHelpers\BiscuitViewHelper;
 use BisquidsTin\Utilities\DB;
 use BisquidsTin\Hydrators\BiscuitHydrator;
+use BisquidsTin\Utilities\BiscuitDataProcessor;
 
 $db = DB::getDB();
 $biscuits = BiscuitHydrator::getBiscuits($db);
 $biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits, $dunkedFlunkedData['dunkedFlunked']);
+
+$mostDunked = BiscuitDataProcessor::mostDunked($biscuits);
+$mostFlunked = BiscuitDataProcessor::mostFlunked($biscuits);
 
 ?>
 <html lang="en-gb">
@@ -42,10 +46,10 @@ $biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits, $dunkedFlunke
         <div class="d-flex flex-column">
             <section class="d-flex border-bottom justify-content-around flex-column flex-md-row align-items-center bg-white">
                 <div class="my-1">
-                    <h6 class="text-success">Most Dunked: Fig Rolls</h6>
+                    <h6 class="text-success">Most Dunked: <?= $mostDunked ?></h6>
                 </div>
                 <div class="my-1">
-                    <h6 class="text-danger">Most Flunked: Party Rings</h6>
+                    <h6 class="text-danger">Most Flunked: <?= $mostFlunked ?></h6>
                 </div>
             </section>
             <section class="container">
