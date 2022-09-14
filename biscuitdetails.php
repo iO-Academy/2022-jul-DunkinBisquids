@@ -2,11 +2,12 @@
 require_once './vendor/autoload.php';
 use BisquidsTin\Utilities\DB;
 use BisquidsTin\Hydrators\BiscuitsHydrator;
+use BisquidsTin\ViewHelpers\BiscuitsViewHelper;
 
 $id = $_POST['id'];
 $db = DB::getDB();
 $biscuit = BiscuitsHydrator::getBiscuitsById($db,$id);
-// $biscuitDisplay = BiscuitsViewHelper::displayAllBiscuits($biscuits);
+$biscuitDisplay = BiscuitsViewHelper::displayAllBiscuits($biscuit);
 ?>
 <html lang="en-gb">
     <head>
