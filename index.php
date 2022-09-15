@@ -26,7 +26,7 @@ $biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits, $dunkedFlunke
 </head>
 
 <body>
-    <nav class="container-fluid border-bottom bg-white sticky-top">
+    <nav class="container-fluid border-bottom bg-white">
         <div class="row">
             <h1 class="text-center title py-lg-4 py-2">Dunkin' Bisquids</h1>
         </div>
