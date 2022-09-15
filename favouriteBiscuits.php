@@ -31,6 +31,11 @@ $db = DB::getDB();
     <main class="d-flex justify-content-center">
         <img class="logoImg" src="./design/Dunkin_Donut_Logo.png" alt="Dunkin_Bisquids_Logo">
         <div class="d-flex flex-column">
+            <section class="d-flex justify-content-center">
+                <div class="m-4 d-flex justify-content-center">
+                    <a href="index.php" class="btn btn-primary">Back to Bisquids</a>
+                </div>
+            </section>
             <section class="container">
                 <div class="row d-flex justify-content-center py-2">
                     <!-- <?= $biscuitDisplay ?> -->
