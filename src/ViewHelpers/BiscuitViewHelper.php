@@ -40,7 +40,7 @@ class BiscuitViewHelper
             if(isset($dunkFlunkState)) {
                 $result .= ($dunkFlunkState ? ' disabled ' : '');
             }
-            $result .= 'class="btn btn-success"><img class="list-icon" src="design/Dunk_Icon.png" /></button>';
+            $result .= 'class="btn btn-success"><img class="list-icon" alt="Dunk image" src="design/Dunk_Icon.png" /></button>';
             $result .= '</form>';
             $result .= '<form action="hiddenFlunk.php" method="POST">';
             $result .= '<input type="hidden" name="id" value="' . $biscuit->getId() . '" >';
@@ -48,7 +48,7 @@ class BiscuitViewHelper
             if(isset($dunkFlunkState)) {
                 $result .= (!$dunkFlunkState ? ' disabled ' : '');
             }
-            $result .= 'class="btn btn-danger"><img class="list-icon" src="design/Flunk_Icon.png" /></button>';
+            $result .= 'class="btn btn-danger"><img class="list-icon" alt="Flunk image" src="design/Flunk_Icon.png" /></button>';
             $result .= '</form></div></div>';
         }
         return $result;
@@ -88,7 +88,7 @@ class BiscuitViewHelper
             if(isset($dunkFlunkState)) {
                 $result .= ($dunkFlunkState ? ' disabled ' : '');
             }
-            $result .= ' class="btn btn-success"><img class="details-icon" src="design/Dunk_Icon.png" /></button>';
+            $result .= ' class="btn btn-success"><img class="details-icon" alt="Dunk image" src="design/Dunk_Icon.png" /></button>';
             $result .= '</form>';
             
             $result .= '<form action="hiddenFlunk.php" method="POST">';
@@ -98,7 +98,7 @@ class BiscuitViewHelper
             if(isset($dunkFlunkState)) {
                 $result .= (!$dunkFlunkState ? ' disabled ' : '');
             }
-            $result .= ' class="btn btn-danger"><img class="details-icon" src="design/Flunk_Icon.png" /></button>';
+            $result .= ' class="btn btn-danger"><img class="details-icon" alt="Flunk image" src="design/Flunk_Icon.png" /></button>';
             $result .= '</form></div></div>';
             return $result;
         } else {

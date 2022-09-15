@@ -56,10 +56,16 @@ html {
     }
 
     .details-icon {
-        max-width: 70px;
+        max-width: 50px;
     }
     
     .list-icon {
         max-width: 70px;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .details-icon {
+        max-width: 100px;
     }
 }
