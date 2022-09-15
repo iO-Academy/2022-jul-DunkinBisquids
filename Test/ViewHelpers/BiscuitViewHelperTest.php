@@ -14,24 +14,13 @@ class BiscuitViewHelperTest extends Testcase
         $biscuitMock->method('getName')->willReturn('Digestive');
         $biscuitMock->method('getImg')->willReturn('img.jpg');
         $biscuitMock->method('getId')->willReturn(3);
-
+        $biscuitMock->method('getDunk')->willReturn(3);
+        $biscuitMock->method('getFlunk')->willReturn(3);
+        $input2 =['dunkedFlunked' => ['1' => true]];
         $input = [$biscuitMock];
-        $input2 = ['dunkedFlunked' => ['1' => true]];
-        $expected = '<div class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10 col-lg-3">';
-        $expected .= '<div class="card-title card-background rounded">';
-        $expected .= '<h2 class="text-center p-2">Digestive</h2>';
-        $expected .= '</div><div class="card-img d-flex justify-content-center mb-3">';
-        $expected .= '<img src="img.jpg" class="rounded mw-100" alt="Digestive" />';
-        $expected .= '</div><form action="biscuitdetails.php" method="GET">';
-        $expected .= '<input type="hidden" name="id" value="3" />';
-        $expected .= '<button type="submit" class="btn btn-light">More Info</button>';
-        $expected .= '</form>';
-        $expected .= '<div class="d-flex container-fluid justify-content-around"><form action="hiddenVoting.php" method="POST">';
-        $expected .= '<input type="hidden" name="dunk" value="3" ><input type="hidden" name="dunkBiscuit" value="Digestive" ><button type="submit"class="btn btn-success">Dunk</button></form>';
-        $expected .= '<form action="hiddenVoting.php" method="POST"><input type="hidden" name="flunk" value="3" ><input type="hidden" name="flunkBiscuit" value="Digestive">';
-        $expected .= '<button type="submit"class="btn btn-danger">Flunk</button></form></div></div>';
+        $exp = '<div id="3" class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10 col-lg-3"><div class="card-title card-background rounded"><h2 class="text-center p-2">Digestive</h2></div><div class="card-img d-flex justify-content-center mb-3"><img src="img.jpg" class="rounded mw-100" alt="Digestive" /></div><form action="biscuitdetails.php" method="GET"><input type="hidden" name="id" value="3" /><button type="submit" class="btn btn-light">More Info</button></form><div class="d-flex container-fluid justify-content-around"><form action="hiddenDunk.php" method="POST"><input type="hidden" name="id" value="3" ><button type="submit"class="btn btn-success"><img class="list-icon" src="design/Dunk_Icon.png" /></button></form><form action="hiddenFlunk.php" method="POST"><input type="hidden" name="id" value="3" ><button type="submit"class="btn btn-danger"><img class="list-icon" src="design/Flunk_Icon.png" /></button></form></div><div class="d-flex container-fluid justify-content-around"><p class="my-0 text-success fs-4 text">3</p><p class="my-0 text-danger fs-4 text">3</p></div></div>';
         $actual = BiscuitViewHelper::displayAllBiscuits($input, $input2);
-        $this->assertEquals($expected, $actual);
+        $this->assertEquals($exp, $actual);
     }
 
     public function testFailureDisplayAllBiscuits()
@@ -39,7 +28,6 @@ class BiscuitViewHelperTest extends Testcase
         $input = [1, 2];
         $input2 = ['dunkedFlunked' => ['1' => true]];
         $expected = '';
-
         $actual = BiscuitViewHelper::displayAllBiscuits($input, $input2);
         $this->assertEquals($expected, $actual);
     }
@@ -47,8 +35,9 @@ class BiscuitViewHelperTest extends Testcase
     public function testMalformedDisplayAllBiscuits()
     {
         $input = 'hello';
+        $input2 =['dunkedFlunked' => ['1' => true]];
         $this->expectException(TypeError::class);
-        $case = BiscuitViewHelper::displayAllBiscuits($input);
+        $case = BiscuitViewHelper::displayAllBiscuits($input, $input2);
     }
 
     public function testSuccessDisplayBiscuitDetails()
@@ -57,23 +46,18 @@ class BiscuitViewHelperTest extends Testcase
         $biscuitMock->method('getName')->willReturn('Digestive');
         $biscuitMock->method('getImg')->willReturn('https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/d05662cfb32042c9894dddf8ed73ce22.jpg');
         $biscuitMock->method('getId')->willReturn(1);
+        $biscuitMock->method('getDunk')->willReturn(3);
+        $biscuitMock->method('getFlunk')->willReturn(3);
         $biscuitMock->method('getDescription')->willReturn('A digestive biscuit, sometimes described as a sweet-meal biscuit, is a semi-sweet biscuit that originated in Scotland. The digestive was first developed in 1839 by two Scottish doctors to aid digestion.');
         $biscuitMock->method('getRDT')->willReturn(5);
         $biscuitMock->method('getWikipedia')->willReturn('https://en.wikipedia.org/wiki/Digestive_biscuit');
 
         $input = $biscuitMock;
+        $input2 =['dunkedFlunked' => ['1' => true]];
 
-        $expected = '<div class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10">';
-        $expected .= '<div class="card-title card-background rounded">';
-        $expected .= '<h2 class="text-center p-2">Digestive</h2>';
-        $expected .= '</div><div class="card-img d-flex justify-content-center mb-3">';
-        $expected .= '<img src="https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/d05662cfb32042c9894dddf8ed73ce22.jpg" class="rounded mw-100" alt="Digestive" />';
-        $expected .= '</div><div class="card-background rounded p-3"><p>A digestive biscuit, sometimes described as a sweet-meal biscuit, is a semi-sweet biscuit that originated in Scotland. The digestive was first developed in 1839 by two Scottish doctors to aid digestion.</p>';
-        $expected .= '<p>RDT: 5</p>';
-        $expected .= '<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Digestive_biscuit">Digestive</a></p></div>';
-
-        $actual = BiscuitViewHelper::displayBiscuitDetails($input);
-        $this->assertEquals($expected, $actual);
+        $exp = '<div class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10"><div class="card-title card-background rounded"><h2 class="text-center p-2">Digestive</h2></div><div class="card-img d-flex justify-content-center mb-3"><img src="https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/d05662cfb32042c9894dddf8ed73ce22.jpg" class="rounded mw-100" alt="Digestive" /></div><div class="card-background rounded p-3"><p>A digestive biscuit, sometimes described as a sweet-meal biscuit, is a semi-sweet biscuit that originated in Scotland. The digestive was first developed in 1839 by two Scottish doctors to aid digestion.</p><p>RDT: 5</p><p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Digestive_biscuit">Digestive</a></p></div><div class="container-fluid mt-2 d-flex justify-content-around"><form action="hiddenDunk.php" method="POST"><input type="hidden" name="id" value="1" ><button type="submit" class="btn btn-success"><img class="details-icon" src="design/Dunk_Icon.png" /></button></form><form action="hiddenFlunk.php" method="POST"><input type="hidden" name="id" value="1" ><button type="submit" class="btn btn-danger"><img class="details-icon" src="design/Flunk_Icon.png" /></button></form></div><div class="d-flex container-fluid justify-content-around"><p class="my-0 text-success fs-4 text">3</p><p class="my-0 text-danger fs-4 text">3</p></div></div>';
+        $actual = BiscuitViewHelper::displayBiscuitDetails($input, $input2);
+        $this->assertEquals($exp, $actual);
     }
 
     public function testFailureDisplayBiscuitDetails()
@@ -85,19 +69,18 @@ class BiscuitViewHelperTest extends Testcase
         $biscuitMock->method('getDescription')->willReturn('A digestive biscuit, sometimes described as a sweet-meal biscuit, is a semi-sweet biscuit that originated in Scotland. The digestive was first developed in 1839 by two Scottish doctors to aid digestion.');
         $biscuitMock->method('getRDT')->willReturn(5);
         $biscuitMock->method('getWikipedia')->willReturn('https://en.wikipedia.org/wiki/Digestive_biscuit');
-
         $input = $biscuitMock;
-
+        $input2 =['dunkedFlunked' => ['1' => true]];
         $expected = 'no biscuit selected';
-
-        $actual = BiscuitViewHelper::displayBiscuitDetails($input);
+        $actual = BiscuitViewHelper::displayBiscuitDetails($input, $input2);
         $this->assertEquals($expected, $actual);
     }
 
     public function testMalformedDisplayBiscuitDetails()
     {
         $input = 'hello';
+        $input2 =['dunkedFlunked' => ['1' => true]];
         $this->expectException(TypeError::class);
-        $case = BiscuitViewHelper::displayBiscuitDetails($input);
+        $case = BiscuitViewHelper::displayBiscuitDetails($input, $input2);
     }
 }

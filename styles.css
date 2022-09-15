@@ -26,6 +26,14 @@
     width: 85%;
 }
 
+.details-icon {
+    max-width: 200px;
+}
+
+.list-icon {
+    max-width: 100px;
+}
+
 .card-img {
     width: 85%;
     background-color: white;
@@ -41,5 +49,13 @@
 
     .title {
         font-size: 22px;
+    }
+
+    .details-icon {
+        max-width: 70px;
+    }
+    
+    .list-icon {
+        max-width: 70px;
     }
 }
