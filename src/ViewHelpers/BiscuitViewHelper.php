@@ -51,7 +51,7 @@ class BiscuitViewHelper
             }
             $result .= 'class="btn btn-danger"><img class="list-icon" src="design/Flunk_Icon.png" /></button>';
             $result .= '</form></div>';
-            $result .= '<div class="d-flex container-fluid justify-content-around"><p class="my-0 text-success fs-4 text">' . $biscuit->getDunk() . '</p><p class="my-0 text-danger fs-4 text">' . $biscuit->getFlunk() . '</p></div>';
+            $result .= '<div class="d-flex container-fluid justify-content-around"><p class="my-0 text-success px-2 rounded fs-4 text bg-light">' . $biscuit->getDunk() . '</p><p class="my-0 px-2 rounded bg-light text-danger fs-4 text">' . $biscuit->getFlunk() . '</p></div>';
             $result .= '</div>';
         }
         return $result;
@@ -95,7 +95,7 @@ class BiscuitViewHelper
             }
             $result .= ' class="btn btn-danger"><img class="details-icon" src="design/Flunk_Icon.png" /></button>';
             $result .= '</form></div>';
-            $result .= '<div class="d-flex container-fluid justify-content-around"><p class="my-0 text-success fs-4 text">' . $biscuit->getDunk() . '</p><p class="my-0 text-danger fs-4 text">' . $biscuit->getFlunk() . '</p></div>';
+            $result .= '<div class="d-flex container-fluid justify-content-around"><p class="my-0 text-success px-2 rounded bg-light fs-4 text">' . $biscuit->getDunk() . '</p><p class="my-0 text-danger px-2 rounded bg-light fs-4 text">' . $biscuit->getFlunk() . '</p></div>';
             $result .= '</div>';
             return $result; 
         } else {
