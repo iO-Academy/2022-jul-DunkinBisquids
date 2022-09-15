@@ -51,7 +51,7 @@ class BiscuitViewHelper
                 if (isset($dunkFlunkState)) {
                     $result .= (!$dunkFlunkState ? ' disabled ' : '');
                 }
-                $result .= 'class="btn btn-danger"><img class="list-icon" src="design/Flunk_Icon.png" /></button>';
+                $result .= 'class="btn btn-danger"><img class="list-icon" src="design/Flunk_Icon.png" alt="Flunk Cookie" /></button>';
                 $result .= '</form></div>';
                 $result .= '<div class="d-flex container-fluid justify-content-around">';
                 $result .= '<p class="my-0 text-success px-2 rounded fs-4 text bg-light">' . $biscuit->getDunk() . '</p>';
