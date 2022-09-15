@@ -8,17 +8,20 @@ if (!isset($_SESSION['dunkFlunk'])) {
 
 $dunkedFlunkedData = $_SESSION['dunkFlunk'];
 
-
 use BisquidsTin\ViewHelpers\BiscuitViewHelper;
 use BisquidsTin\Utilities\DB;
 use BisquidsTin\Hydrators\BiscuitHydrator;
 use BisquidsTin\Utilities\BiscuitDataProcessor;
+use BisquidsTin\Utilities\FaveBiscuitDataProcessor;
 
 $db = DB::getDB();
 $biscuits = BiscuitHydrator::getBiscuits($db);
 $biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits, $dunkedFlunkedData);
 $mostDunked = BiscuitDataProcessor::mostDunked($biscuits);
 $mostFlunked = BiscuitDataProcessor::mostFlunked($biscuits);
+$faveBiscuitIds = FaveBiscuitDataProcessor::getFaveBiscuitData($dunkedFlunkedData);
+$faveBiscuitList = BiscuitHydrator::getFaveBiscuits($db, $faveBiscuitIds);
+
 ?>
 
 <html lang="en-gb">
@@ -29,6 +32,7 @@ $mostFlunked = BiscuitDataProcessor::mostFlunked($biscuits);
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <nav class="container-fluid border-bottom bg-white">
         <div class="row">
