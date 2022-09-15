@@ -24,4 +24,6 @@ if(isset ($_POST['id'])) {
         BiscuitHydrator::incrementDunk($db, $id);
         header('Location: index.php#' . $id);
     }
+} else {
+    header('Location: index.php');
 }
