@@ -12,18 +12,13 @@ use BisquidsTin\ViewHelpers\BiscuitViewHelper;
 use BisquidsTin\Utilities\DB;
 use BisquidsTin\Hydrators\BiscuitHydrator;
 use BisquidsTin\Utilities\BiscuitDataProcessor;
-use BisquidsTin\Utilities\FaveBiscuitDataProcessor;
 
 $db = DB::getDB();
 $biscuits = BiscuitHydrator::getBiscuits($db);
 $biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits, $dunkedFlunkedData);
 $mostDunked = BiscuitDataProcessor::mostDunked($biscuits);
 $mostFlunked = BiscuitDataProcessor::mostFlunked($biscuits);
-$faveBiscuitIds = FaveBiscuitDataProcessor::getFaveBiscuitData($dunkedFlunkedData);
-$faveBiscuitList = BiscuitHydrator::getFaveBiscuits($db, $faveBiscuitIds);
-
 ?>
-
 <html lang="en-gb">
 
 <head>
