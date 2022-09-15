@@ -1,7 +1,16 @@
 <?php
+require_once './vendor/autoload.php';
 
+session_start();
+if (!isset($_SESSION['dunkFlunk'])) {
+    $_SESSION['dunkFlunk'] = [];
+}
 
+$dunkedFlunkedData = $_SESSION['dunkFlunk'];
 
+use BisquidsTin\Utilities\DB;
+
+$db = DB::getDB();
 
 ?>
 
