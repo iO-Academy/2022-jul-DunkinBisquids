@@ -26,7 +26,6 @@ class BiscuitViewHelperTest extends Testcase
         $input = [1, 2];
         $input2 =['dunkedFlunked' => ['1' => true]];
         $expected = '';
-        
         $actual = BiscuitViewHelper::displayAllBiscuits($input, $input2);
         $this->assertEquals($expected, $actual);
     }
@@ -48,10 +47,8 @@ class BiscuitViewHelperTest extends Testcase
         $biscuitMock->method('getDescription')->willReturn('A digestive biscuit, sometimes described as a sweet-meal biscuit, is a semi-sweet biscuit that originated in Scotland. The digestive was first developed in 1839 by two Scottish doctors to aid digestion.');
         $biscuitMock->method('getRDT')->willReturn(5);
         $biscuitMock->method('getWikipedia')->willReturn('https://en.wikipedia.org/wiki/Digestive_biscuit');
-
         $input = $biscuitMock;
         $input2 =['dunkedFlunked' => ['1' => true]];
-
         $exp = '<div class="card d-flex flex-direction-column align-items-center p-3 m-4 col-10"><div class="card-title card-background rounded"><h2 class="text-center p-2">Digestive</h2></div><div class="card-img d-flex justify-content-center mb-3"><img src="https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/d05662cfb32042c9894dddf8ed73ce22.jpg" class="rounded mw-100" alt="Digestive" /></div><div class="card-background rounded p-3"><p>A digestive biscuit, sometimes described as a sweet-meal biscuit, is a semi-sweet biscuit that originated in Scotland. The digestive was first developed in 1839 by two Scottish doctors to aid digestion.</p><p>RDT: 5</p><p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Digestive_biscuit">Digestive</a></p></div><div class="container-fluid mt-2 d-flex justify-content-around"><form action="hiddenDunk.php" method="POST"><input type="hidden" name="id" value="1" ><input type="hidden" name="redirectionID" value="1" ><button type="submit" class="btn btn-success"><img class="details-icon" src="design/Dunk_Icon.png" /></button></form><form action="hiddenFlunk.php" method="POST"><input type="hidden" name="id" value="1" ><input type="hidden" name="redirectionID" value="1" ><button type="submit" class="btn btn-danger"><img class="details-icon" src="design/Flunk_Icon.png" /></button></form></div></div>';
         $actual = BiscuitViewHelper::displayBiscuitDetails($input, $input2);
         $this->assertEquals($exp, $actual);
@@ -66,12 +63,9 @@ class BiscuitViewHelperTest extends Testcase
         $biscuitMock->method('getDescription')->willReturn('A digestive biscuit, sometimes described as a sweet-meal biscuit, is a semi-sweet biscuit that originated in Scotland. The digestive was first developed in 1839 by two Scottish doctors to aid digestion.');
         $biscuitMock->method('getRDT')->willReturn(5);
         $biscuitMock->method('getWikipedia')->willReturn('https://en.wikipedia.org/wiki/Digestive_biscuit');
-
         $input = $biscuitMock;
         $input2 =['dunkedFlunked' => ['1' => true]];
-        
         $expected = 'no biscuit selected';
-        
         $actual = BiscuitViewHelper::displayBiscuitDetails($input, $input2);
         $this->assertEquals($expected, $actual);
     }
