@@ -30,7 +30,7 @@ class BiscuitHydrator
      */
     public static function getBiscuitById(\PDO $db, string $id): Biscuit
     {
-        $query = $db->prepare("SELECT `id`, `name`, `img`, `RDT`, `desc` AS `description`, `wikipedia` FROM `biscuits` WHERE `id` = (:id);");
+        $query = $db->prepare("SELECT `id`, `name`, `img`, `RDT`, `desc` AS `description`, `wikipedia`, `dunk`, `flunk` FROM `biscuits` WHERE `id` = (:id);");
         $query->setFetchMode(\PDO::FETCH_CLASS, Biscuit::class);
         $query->bindParam(":id", $id);
         $query->execute();
