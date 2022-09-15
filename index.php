@@ -42,6 +42,9 @@ $mostFlunked = BiscuitDataProcessor::mostFlunked($biscuits);
                 <div class="my-1">
                     <p class="text-success mb-1">Most Dunked: <?= $mostDunked ?></p>
                 </div>
+                <div class="d-flex justify-content-center">
+                    <a href="favouriteBiscuits.php" class="btn btn-primary">Favourite Bisquids</a>
+                </div>
                 <div class="my-1">
                     <p class="text-danger mb-1">Most Flunked: <?= $mostFlunked ?></p>
                 </div>
