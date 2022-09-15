@@ -2,16 +2,11 @@
 require_once './vendor/autoload.php';
 
 session_start();
+if (!isset($_SESSION['dunkFlunk'])) {
+    $_SESSION['dunkFlunk'] = [];
+}
 
-$dunkedFlunkedData = [
-    'dunkedFlunked' => [
-        '1' => true, 
-        '3' => true, 
-        '5' => false, 
-        '7' => true, 
-        '8' => false, 
-    ]
-];
+$dunkedFlunkedData = $_SESSION['dunkFlunk'];
 
 
 use BisquidsTin\ViewHelpers\BiscuitViewHelper;
@@ -21,12 +16,11 @@ use BisquidsTin\Utilities\BiscuitDataProcessor;
 
 $db = DB::getDB();
 $biscuits = BiscuitHydrator::getBiscuits($db);
-$biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits, $dunkedFlunkedData['dunkedFlunked']);
-
+$biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits, $dunkedFlunkedData);
 $mostDunked = BiscuitDataProcessor::mostDunked($biscuits);
 $mostFlunked = BiscuitDataProcessor::mostFlunked($biscuits);
-
 ?>
+
 <html lang="en-gb">
 <head>
     <title>Dunkin' Bisquids</title>

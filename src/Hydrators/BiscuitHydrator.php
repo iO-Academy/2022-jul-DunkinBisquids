@@ -7,7 +7,6 @@ use BisquidsTin\CustomExceptions\InvalidIdException;
 
 class BiscuitHydrator
 {
-
     /**
      * Function that retrieves all biscuit data from the database.
      *
@@ -41,7 +40,8 @@ class BiscuitHydrator
         }
         return $result;
     }
-        /**
+    
+    /**
      * Function to increment dunk number by one
      *
      * @param \PDO $db
@@ -97,6 +97,4 @@ class BiscuitHydrator
         return $query->execute();
     }
 }
-
-
 ?>
