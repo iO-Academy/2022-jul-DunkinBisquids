@@ -22,6 +22,7 @@ $mostFlunked = BiscuitDataProcessor::mostFlunked($biscuits);
 ?>
 
 <html lang="en-gb">
+
 <head>
     <title>Dunkin' Bisquids</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -40,10 +41,10 @@ $mostFlunked = BiscuitDataProcessor::mostFlunked($biscuits);
         <div class="d-flex flex-column">
             <section class="d-flex border-bottom justify-content-around flex-column flex-md-row align-items-center bg-white">
                 <div class="my-1">
-                    <h6 class="text-success">Most Dunked: <?= $mostDunked ?></h6>
+                    <p class="text-success mb-1">Most Dunked: <?= $mostDunked ?></p>
                 </div>
                 <div class="my-1">
-                    <h6 class="text-danger">Most Flunked: <?= $mostFlunked ?></h6>
+                    <p class="text-danger mb-1">Most Flunked: <?= $mostFlunked ?></p>
                 </div>
             </section>
             <section class="container">
