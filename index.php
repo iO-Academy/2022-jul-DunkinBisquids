@@ -8,7 +8,6 @@ if (!isset($_SESSION['dunkFlunk'])) {
 
 $dunkedFlunkedData = $_SESSION['dunkFlunk'];
 
-
 use BisquidsTin\ViewHelpers\BiscuitViewHelper;
 use BisquidsTin\Utilities\DB;
 use BisquidsTin\Hydrators\BiscuitHydrator;
@@ -20,9 +19,7 @@ $biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits, $dunkedFlunke
 $mostDunked = BiscuitDataProcessor::mostDunked($biscuits);
 $mostFlunked = BiscuitDataProcessor::mostFlunked($biscuits);
 ?>
-
 <html lang="en-gb">
-
 <head>
     <title>Dunkin' Bisquids</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">

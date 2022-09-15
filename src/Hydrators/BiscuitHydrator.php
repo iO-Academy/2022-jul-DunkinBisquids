@@ -22,6 +22,20 @@ class BiscuitHydrator
     }
 
     /**
+     * Function that retrieves all biscuit data from the database.
+     *
+     * @param \PDO $db 
+     * @return array returns the database query as an array.
+     */
+    public static function getFaveBiscuits(\PDO $db, $ids): array
+    {
+        $query = $db->prepare("SELECT `id`, `name`, `img`, `RDT`, `desc` AS `description`, `wikipedia`, `dunk`, `flunk` FROM `biscuits` WHERE `id` IN ($ids);");
+        $query->setFetchMode(\PDO::FETCH_CLASS, Biscuit::class);
+        $query->execute();
+        return $query->fetchAll();
+    }
+
+    /**
      * Function that retrieves one biscuit based on id provided
      *
      * @param \PDO $db
@@ -40,7 +54,7 @@ class BiscuitHydrator
         }
         return $result;
     }
-    
+
     /**
      * Function to increment dunk number by one
      *
@@ -97,4 +111,3 @@ class BiscuitHydrator
         return $query->execute();
     }
 }
-?>
