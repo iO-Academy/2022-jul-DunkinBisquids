@@ -41,7 +41,7 @@ $faveBiscuitDisplay = BiscuitViewHelper::displayAllBiscuits($faveBiscuitList, $d
             </section>
             <section class="container">
                 <div class="row d-flex justify-content-center py-2">
-                    <?= $_SESSION['dunkFlunk'] !== [] ? $faveBiscuitDisplay : '<h2 class="fw-bold text-center text-danger">You have nothing dunked</h2>' ?>
+                    <?= $faveBiscuitList ? $faveBiscuitDisplay  : '<h2 class="fw-bold text-center text-danger">You have nothing dunked</h2>' ?>   
                 </div>
             </section>
         </div>
