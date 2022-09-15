@@ -13,10 +13,10 @@ class BiscuitDataProcessorTest extends Testcase
     {
         $biscuitMock = $this->createMock(Biscuit::class);
         $biscuitMock->method('getName')->willReturn('Penguin');
-        $biscuitMock->method('getDunk')->willReturn('10');
+        $biscuitMock->method('getDunk')->willReturn(10);
         $biscuitMock2 = $this->createMock(Biscuit::class);
         $biscuitMock2->method('getName')->willReturn('Digestive');
-        $biscuitMock2->method('getDunk')->willReturn('1');
+        $biscuitMock2->method('getDunk')->willReturn(1);
 
         $input = [$biscuitMock, $biscuitMock2];
 
@@ -46,10 +46,10 @@ class BiscuitDataProcessorTest extends Testcase
     {
         $biscuitMock = $this->createMock(Biscuit::class);
         $biscuitMock->method('getName')->willReturn('Penguin');
-        $biscuitMock->method('getFlunk')->willReturn('10');
+        $biscuitMock->method('getFlunk')->willReturn(10);
         $biscuitMock2 = $this->createMock(Biscuit::class);
         $biscuitMock2->method('getName')->willReturn('Digestive');
-        $biscuitMock2->method('getFlunk')->willReturn('1');
+        $biscuitMock2->method('getFlunk')->willReturn(1);
 
         $input = [$biscuitMock, $biscuitMock2];
 
