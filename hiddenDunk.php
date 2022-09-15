@@ -14,7 +14,11 @@ if(isset ($_POST['id'])) {
         $_SESSION['dunkFlunk'][$id] = true;
         BiscuitHydrator::decrementFlunk($db, $id);
         BiscuitHydrator::incrementDunk($db, $id);
+        if(isset($_POST['redirectionID'])) {
+            header('Location: biscuitdetails.php?id=' . $id);
+        } else {
         header('Location: index.php#' . $id);
+        }
     } else {
         $_SESSION['dunkFlunk'][$id] = true;
         BiscuitHydrator::incrementDunk($db, $id);
