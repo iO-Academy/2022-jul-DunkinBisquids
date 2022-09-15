@@ -22,17 +22,9 @@
     <main class="d-flex justify-content-center">
         <img class="logoImg" src="./design/Dunkin_Donut_Logo.png" alt="Dunkin_Bisquids_Logo">
         <div class="d-flex flex-column">
-            <section class="d-flex border-bottom justify-content-around flex-column flex-md-row align-items-center bg-white">
-                <div class="my-1">
-                    <p class="text-success mb-1">Most Dunked: <?= $mostDunked ?></p>
-                </div>
-                <div class="my-1">
-                    <p class="text-danger mb-1">Most Flunked: <?= $mostFlunked ?></p>
-                </div>
-            </section>
             <section class="container">
                 <div class="row d-flex justify-content-center py-2">
-                    <?= $biscuitDisplay ?>
+                    <!-- <?= $biscuitDisplay ?> -->
                 </div>
             </section>
         </div>
