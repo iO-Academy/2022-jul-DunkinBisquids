@@ -31,7 +31,7 @@ class BiscuitViewHelper
             $result .= '</form>';
             if(isset($dunkFlunkState)) {
                 $result .= '<div class="card-background rounded text-center m-1 fw-bold"><p class="my-auto">';
-                $result .= ($dunkFlunkState ? 'You have dunked that biscuit!' : 'You have flunked that biscuit!');
+                $result .= ($dunkFlunkState ? 'You have dunked this biscuit!' : 'You have flunked this biscuit!');
                 $result .= '</p></div>';
             }
             $result .= '<div class="d-flex container-fluid justify-content-around"><form action="hiddenDunk.php" method="POST">';
@@ -78,7 +78,7 @@ class BiscuitViewHelper
             $result .= '<p>Wikipedia: <a href="' . $biscuit->getWikipedia() . '">' . $biscuit->getName() . '</a></p></div>';
             if(isset($dunkFlunkState)) {
                 $result .= '<div class="card-background rounded text-center m-1 fw-bold"><p class="my-auto">';
-                $result .= ($dunkFlunkState ? 'You have dunked that biscuit!' : 'You have flunked that biscuit!');
+                $result .= ($dunkFlunkState ? 'You have dunked this biscuit!' : 'You have flunked this biscuit!');
                 $result .= '</p></div>';
             }
             $result .= '<div class="container-fluid mt-2 d-flex justify-content-around"><form action="hiddenDunk.php" method="POST">';
