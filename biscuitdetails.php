@@ -1,6 +1,12 @@
 <?php
 require_once './vendor/autoload.php';
 
+session_start();
+if (!isset($_SESSION['dunkFlunk'])) {
+    $_SESSION['dunkFlunk'] = [];
+}
+
+$dunkedFlunkedData = $_SESSION['dunkFlunk'];
 use BisquidsTin\CustomExceptions\InvalidIdException;
 use BisquidsTin\Hydrators\BiscuitHydrator;
 use BisquidsTin\Utilities\DB;
@@ -14,7 +20,7 @@ if (isset($_GET['id']) && $_GET['id'] !== '') {
     } catch (InvalidIdException $e) {
         header('Location: index.php');
     }
-    $biscuitDetailsDisplay = BiscuitViewHelper::displayBiscuitDetails($biscuit);
+    $biscuitDetailsDisplay = BiscuitViewHelper::displayBiscuitDetails($biscuit, $dunkedFlunkedData);
 } else {
     header('Location: index.php');
 }

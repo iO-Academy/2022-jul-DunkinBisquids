@@ -16,6 +16,7 @@ $db = DB::getDB();
 $biscuits = BiscuitHydrator::getBiscuits($db);
 $biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits, $dunkedFlunkedData);
 ?>
+
 <html lang="en-gb">
 <head>
     <title>Dunkin' Bisquids</title>
@@ -23,9 +24,8 @@ $biscuitDisplay = BiscuitViewHelper::displayAllBiscuits($biscuits, $dunkedFlunke
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
-    <nav class="container-fluid border-bottom bg-white sticky-top">
+    <nav class="container-fluid border-bottom bg-white">
         <div class="row">
             <h1 class="text-center title py-lg-4 py-2">Dunkin' Bisquids</h1>
         </div>
